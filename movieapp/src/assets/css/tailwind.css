@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background: rgb(240,28,154);
+    background: linear-gradient(90deg, rgba(240,28,154,1) 0%, rgba(123,106,217,1) 62%, rgba(43,146,253,1) 100%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mc-1 {
+    background: rgba( 0, 0, 0, 0.50 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+}
+
+.mc-2 {
+    background: rgba( 61, 61, 61, 0.50 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+}
+
+.mc-3 {
+    background: rgba( 61, 61, 61, 0.20 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+}
+
+.mc-4 {
+    background: rgba(204, 204, 204, 0.1);
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+}
+
+.mc-button {
+    background: rgb(255,122,201);
+    background: linear-gradient(90deg, rgba(255,122,201,1) 0%, rgba(123,106,217,1) 100%, rgba(43,146,253,1) 100%);
+    @apply shadow-lg;
+    @apply font-bold;
+}
+
+.mc-button:hover {
+    background: rgb(189,93,150);
+    background: linear-gradient(90deg, rgba(189,93,150,1) 0%, rgba(91,80,152,1) 100%, rgba(43,146,253,1) 100%);
+    @apply shadow-lg;
+}
+
+.m-navbar-btn {
+    transition: all .2s ease-in-out;
+}
+
+.m-navbar-btn:hover {
+    background: rgba(204, 204, 204, 0.1);
+    transform: scale(1.1);
+}
+
+.playlist-display-card {
+    transition: all .2s ease-in-out;
+}
+
+.playlist-display-card:hover {
+    @apply cursor-pointer;
+    /* background: rgba(204, 204, 204, 0.1); */
+    transform: scale(1.01);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba( 61, 61, 61, 0.20 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+}
+
+tbody:before {
+    content:"@";
+    display:block;
+    line-height:15px;
+    text-indent:-99999px;
+}
+
+tr.spaceUnder>td {
+    padding-bottom: 1em;
+}
+
+thead {
+    @apply border-b-2;
+    border-color:rgba( 0, 0, 0, 0.1 )
+}
