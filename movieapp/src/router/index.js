@@ -49,7 +49,7 @@ const routes = [
                 component: () => import('../views/EditPlaylist.vue')
             },
             {
-                path: 'playlist/addmovie',
+                path: 'playlist/addmovie/:id',
                 name: 'AddMovie',
                 component: () => import('../views/AddMovie.vue')
             },

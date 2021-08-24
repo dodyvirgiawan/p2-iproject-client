@@ -54,7 +54,7 @@ export default {
 
             movies.forEach((movie, idx) => {
                 formattedMovies += movie.title
-                formattedMovies += idx === movies.length - 1 ? '.' : ', '
+                formattedMovies += idx === movies.length - 1 ? '' : ', '
             })
 
             return formattedMovies
@@ -65,9 +65,8 @@ export default {
         }
     },
     methods: {
-        editPlaylist() { //! Continue here
+        editPlaylist() {
             this.$router.push(`/playlist/edit/${this.playlist.id}`)
-            console.log('mau edit playlist ini')
         }
     }
 }
