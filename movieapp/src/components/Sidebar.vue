@@ -5,7 +5,7 @@
         <div class="container text-white mc-3 rounded-xl p-2">
             <div class="flex flex-row p-1">
                 <div class="container m-auto w-1/4">
-                    <img src="@/assets/profilepicture.png" class="block w-11 mx-auto">
+                    <img :src="`https://avatars.dicebear.com/api/bottts/${loggedInUserInfo.first_name}${loggedInUserInfo.last_name}.svg`" class="block w-11 mx-auto">
                 </div>
                 <div class="container m-auto w-3/4 ml-3">
                     <h3 class="text-2xl">{{ loggedInUserInfo.first_name }} {{ loggedInUserInfo.last_name }}</h3>
