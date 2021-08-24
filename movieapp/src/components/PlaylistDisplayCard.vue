@@ -45,7 +45,8 @@ export default {
             const output = Math.round(Math.abs((postedDay - today) / oneDay))
 
             if(output === 0) return 'today'
-            else return `${output} day(s) ago`
+            else if(output === 1) return `${output} day ago`
+            else return `${output} days ago`
         },
 
         formattedMovies() {
