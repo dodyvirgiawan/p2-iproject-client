@@ -12,7 +12,7 @@
         <!-- Content -->
         <ais-instant-search :search-client="searchClient" index-name="cineclub" class="text-black mc-4 rounded-xl p-5">
             <ais-configure
-                :hits-per-page.camel="5"
+                :hits-per-page.camel="4"
             />
             <div class="container flex flex-col">
                 <div class="container mt-2">
