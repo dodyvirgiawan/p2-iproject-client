@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Toast from "vue-toastification"
 import router from '../router'
 import cineclubApi from '../apis/cineclubApi.js'
+import omdbApi from '../apis/omdbApi.js'
 import "vue-toastification/dist/index.css"
 
 const toastOptions = {
@@ -34,7 +35,8 @@ export default new Vuex.Store({
         loggedInUserInfo: {},
         playlists: [],
         loggedInUserPlaylists: [],
-        viewedPlaylist: {}
+        viewedPlaylist: {},
+        searchedMovies: [],
     },
     mutations: {
         SET_IS_LOGGED_IN(state, payload) {
@@ -55,6 +57,14 @@ export default new Vuex.Store({
 
         SET_VIEWED_PLAYLIST(state, payload) {
             state.viewedPlaylist = payload
+        },
+
+        SET_SEARCHED_MOVIES(state, payload) {
+            state.searchedMovies.push(payload)
+        },
+
+        RESET_SEARCHED_MOVIES(state) {
+            state.searchedMovies = []
         }
     },
     actions: {
@@ -284,6 +294,23 @@ export default new Vuex.Store({
                 }
 
                 Vue.$toast.error(errorMessages, toastOptions)
+            }
+        },
+
+        async searchMovieByTitle(context, payload) {
+            try {
+                context.commit('RESET_SEARCHED_MOVIES')
+
+                const response = await omdbApi({
+                    method: 'GET',
+                    params: {
+                        t: payload
+                    }
+                })
+
+                context.commit('SET_SEARCHED_MOVIES', response.data)
+            } catch (err) {
+                Vue.$toast.error(err.response.data.message, toastOptions)
             }
         }
     },
