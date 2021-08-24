@@ -9,7 +9,7 @@
                     <h3 class="text-2xl">{{ movie.Title }}</h3>
                 </div>
                 <div class="container">
-                    <small>{{ movie.Runtime }} min | {{ movie.Genre }}</small>
+                    <small>{{ movie.Runtime }} | {{ movie.Genre }}</small>
                 </div>
                 <div class="flex flex-row">
                     <div class="container w-3/4">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="container w-1/4 m-auto">
 
-                        <button class="rounded-lg mc-button p-2 mt-6 block">
+                        <button @click="addMovieToPlaylist" class="rounded-lg mc-button p-2 mt-6 block">
                             <img class="w-5" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxUlEQVRIS92V0Q3CMAxE7yZghMImjEIng1EYpd2ADYwSKSgE4sQmVSX6W/tefHUvxMYPN9ZHFSAiZwBXAEfjIRYAM8l76NMAoXAyiqfyheSpBZBYQJpsFJG3Pm2C/QDlKXMbh0zgApRNFpGuCVqA9L62VWkZqhbtDtBsGGLRfwG0+HB/5N5MsgAeAA69wkXdSjKm8CuLvqxpiOubI1FXAJePuNb+XOcUsa06wS+ieW8OcHneui9ygMvzbsAoS0od03XoOcQTbKPOGc7x0aEAAAAASUVORK5CYII="/>
                         </button>
 
@@ -36,7 +36,22 @@
 <script>
 export default {
     name: 'MovieSearchCard',
-    props: ['movie']
+    props: ['movie'],
+    methods: {
+        addMovieToPlaylist() {
+            const payload = {
+                title: this.movie.Title,
+                genre: this.movie.Genre,
+                runtime: this.movie.Runtime,
+                director: this.movie.Director,
+                imdbRating: this.movie.imdbRating,
+                posterUrl: this.movie.Poster
+            }
+
+            this.$store.commit('SET_SELECTED_MOVIE', payload)
+            this.$router.push('/movies/addtoplaylist')
+        }
+    }
 }
 </script>
 
