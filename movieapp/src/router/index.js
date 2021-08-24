@@ -68,4 +68,26 @@ const router = new VueRouter({
     routes
 })
 
+router.beforeEach((to, from, next) => {
+    const access_token = localStorage.getItem('access_token')
+
+    switch(to.name) {
+        case 'Login':
+        case 'Register':
+            access_token ? next({name: 'Home'}) : next()
+            break
+        case 'AppTemplate':
+        case 'Home':
+        case 'SearchMovie':
+        case 'AddToPlaylist':
+        case 'CreatePlaylist':
+        case 'Playlist':
+        case 'EditPlaylist':
+        case 'AddMovie':
+        case 'PlaylistDetail':
+            access_token ? next() : next({name: 'Login'})
+            break
+    }
+})
+
 export default router
