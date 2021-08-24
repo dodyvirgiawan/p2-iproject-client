@@ -212,6 +212,49 @@ export default new Vuex.Store({
             }
         },
 
+        async createPlaylist(context, payload) {
+            try {
+                const response = await cineclubApi({
+                    method: 'POST',
+                    url: '/playlists',
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    },
+                    data: {
+                        playlist_title: payload.playlist.title,
+                        playlist_description: payload.playlist.description,
+                        movie_title: payload.movie.title,
+                        movie_genre: payload.movie.genre,
+                        movie_runtime: payload.movie.runtime.split(' ')[0], // From OMDB Api is xx min. Want to get only the number
+                        movie_director: payload.movie.director,
+                        movie_imdbRating: payload.movie.imdbRating,
+                        movie_posterUrl: payload.movie.posterUrl
+                    }
+                })
+
+                Vue.$toast.info('Creating playlist... please wait', toastOptions)
+
+                setTimeout(function() {
+                    Vue.$toast.success(response.data.message, toastOptions)
+                    router.push(`/playlist`)
+                }, 2000)
+
+            } catch (err) {
+                let errorMessages = ''
+
+                if(Array.isArray(err.response.data.message)) {
+                    err.response.data.message.forEach((el, idx) => {
+                        errorMessages += `${el}`
+                        errorMessages += idx === err.response.data.message.length - 1 ? '' : ',\n'
+                    })
+                } else {
+                    errorMessages = err.response.data.message
+                }
+
+                Vue.$toast.error(errorMessages, toastOptions)
+            }
+        },
+
         async editPlaylist(context, payload) {
             try {
                 const response = await cineclubApi({
@@ -263,8 +306,6 @@ export default new Vuex.Store({
 
         async addMovieManually(context, payload) {
             try {
-                Vue.$toast.info('Adding movie to playlist... please wait', toastOptions)
-
                 const response = await cineclubApi({
                     method: 'POST',
                     url: `/movies/playlist/${payload.playlistId}`,
@@ -280,6 +321,8 @@ export default new Vuex.Store({
                         posterUrl: payload.posterUrl
                     }
                 })
+
+                Vue.$toast.info('Adding movie to playlist... please wait', toastOptions)
 
                 setTimeout(function() {
                     Vue.$toast.success(response.data.message, toastOptions)
@@ -304,8 +347,6 @@ export default new Vuex.Store({
 
         async addMovieToPlaylist(context, payload) {
             try {
-                Vue.$toast.info('Adding movie to playlist... please wait', toastOptions)
-
                 const response = await cineclubApi({
                     method: 'POST',
                     url: `/movies/playlist/${payload.playlistId}`,
@@ -321,6 +362,8 @@ export default new Vuex.Store({
                         posterUrl: payload.movie.posterUrl
                     }
                 })
+
+                Vue.$toast.info('Adding movie to playlist... please wait', toastOptions)
 
                 setTimeout(function() {
                     Vue.$toast.success(response.data.message, toastOptions)
