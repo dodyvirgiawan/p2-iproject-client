@@ -47,6 +47,17 @@
                     </div>
                 </router-link>
             </div>
+            <hr class="mt-2 inline-block border-gray-300 text-center" style="opacity: 30%"> 
+            <div class="container mt-3">
+                <router-link to="/chat" class="container flex flex-row p-2 rounded-xl m-navbar-btn">
+                    <div class="container w-1/4">
+                        <img class="block w-9 mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA2klEQVRIS+2V0Q3CMAxE7yZgBGASGAU2gUlgBEZgBJiAdgOYwMhRU6GSpHLk8IV/m9yzz6lNNA421kcWICJbACcAK2MSHYA9yaveKwH04NIoHo93JNdFgFVYRLTSM4BNECZD8q49GCCPJMDLcxGRHMDF8xIgkGsjev4HZB38tUU9yTABxv8gNsehyfoad1+jwgswTdC9ghLgCWBRadHoeQmg41mHlXWC9p+eZwHTD4meHEkerBWW9kEcHa8hw4tVfG7hKOA+iN9qxOcAmrG+Z21+dbgunFQWzQFvsouBGQSQTa0AAAAASUVORK5CYII="/>                               
+                    </div>
+                    <div class="container w-3/4 p-1">
+                        Chat
+                    </div>
+                </router-link>
+            </div>
         </div>
 
         <!-- Logout Button -->
