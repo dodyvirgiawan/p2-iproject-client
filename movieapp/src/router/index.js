@@ -23,6 +23,11 @@ const routes = [
                 name: 'Home', 
                 component: () => import('../views/Homepage.vue')
             },
+            {
+                path: 'chat',
+                name: 'Chat',
+                component: () => import('../views/Chat.vue')
+            },
             { 
                 path: 'movies', 
                 name: 'SearchMovie', 
@@ -91,6 +96,7 @@ router.beforeEach((to, from, next) => {
         case 'AddMovie':
         case 'PlaylistDetail':
         case 'SearchPlaylist':
+        case 'Chat':
             access_token ? next() : next({name: 'Login'})
             break
     }

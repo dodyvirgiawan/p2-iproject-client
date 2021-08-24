@@ -45,6 +45,16 @@ body {
     @apply shadow-lg;
 }
 
+.mc-user-chat {
+    @apply bg-green-200;
+    @apply text-black;
+}
+
+.mc-other-chat {
+    @apply bg-blue-200;
+    @apply text-black;
+}
+
 .m-navbar-btn {
     transition: all .2s ease-in-out;
 }
