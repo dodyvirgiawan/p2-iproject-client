@@ -2,12 +2,19 @@
     <div class="flex flex-row p-6 mc-3 mt-5 rounded-2xl">
         <!-- Commenter's Name -->
         <div class="container w-1/4 flex flex-col">
-            <h5>{{ comment.author.first_name }} {{ comment.author.last_name }}</h5>
-            <small>{{ countDays }}</small>
+            <div class="flex flex-row p-1 mc-3 rounded-xl">
+                <div class="container m-auto w-1/4">
+                    <img :src="`https://avatars.dicebear.com/api/bottts/${comment.author.first_name}${comment.author.last_name}.svg`" class="block w-11 mx-auto">
+                </div>
+                <div class="container m-auto w-3/4 ml-3">
+                    <h5>{{ comment.author.first_name }} {{ comment.author.last_name }}</h5>
+                    <small>{{ countDays }}</small>
+                </div>
+            </div>
         </div>
 
         <!-- The Actual Comment -->
-        <div class="container w-3/4">
+        <div class="container w-3/4 p-2 ml-4 rounded-xl">
             <p class="text-sm">
                 {{ comment.comment }}
             </p>
