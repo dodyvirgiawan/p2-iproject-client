@@ -48,7 +48,7 @@
         </div>
 
         <div class="container flex flex-row justify-end mr-5 mc-1 p-5 rounded-b-3xl">
-            <input v-model="message" autocomplete="off" type="text" placeholder="type here to chat..." class="h-9 p-3 rounded-xl text-black w-3/5">
+            <input v-on:keyup.enter="sendMessage" v-model="message" autocomplete="off" type="text" placeholder="type here to chat..." class="h-9 p-3 rounded-xl text-black w-3/5">
             <button @click="sendMessage" class="rounded-full items-center p-2 mc-button my-auto block ml-5">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABtElEQVRIS72VwXHCMBBF/4oLzsHCFQQ6IBWEDqCDpAPoAFJBTAfQAemAVBDSAVQgzGQgF7QZ2bLHNjZ4HMBn+b/d/asvwo0/urE+7gvY73YrYpYgmjiuO79Gd5kO9kGwJUBa4TWA2a/WU8/ztnVhecCCgD4DQQxiwED9uqA8YETAO4A5tJ6ZUYHo2VRvQQto/eZ4numu0pcB/CjVbQjxBWDtSNkxCgeleiyEAfdTirOqoJMtSnzQupOu9KBUG0JMALzEIGJeMPPU8bxlWTtFgNAHEC1xPJpxZH6OQQwMkoUoOWugRYDYh6iokp+VUq2mECMGzPlw8whYMZGfXvETQMqHbNcXQABeATzGoKaUT4UdlAKYP8E8yY/MdjK0gHa4cUTfD67brTaiC8J2RK1Y2NwZx3VnySLk3d8HQWRyibA1eWxNDoXLzpZ1EMVF8ZqO7SgiXeCDtPYrr2lq/htHynCe5qIR0ZCJBqluzU03fly80eejotEYg7lnqzX5ZKKiknChB/H8be5ExkXBZ8LOr5Oq5+J6Y+O6lnBxB9GD07IPTrJqlWKz5NB9n8z/VFo5Ta8N+QNUs/0ZzvlJrAAAAABJRU5ErkJggg=="/>
             </button>
@@ -90,13 +90,15 @@ export default {
     },
     methods: {
         sendMessage() {
-            const data = {
-                name: `${this.loggedInUserInfo.first_name} ${this.loggedInUserInfo.last_name}`,
-                message: this.message
+            if(this.message.trim()) { // Only send if not an empty string
+                const data = {
+                    name: `${this.loggedInUserInfo.first_name} ${this.loggedInUserInfo.last_name}`,
+                    message: this.message
+                }
+    
+                this.message = ''
+                this.$socket.emit('sendMessage', data)
             }
-
-            this.message = ''
-            this.$socket.emit('sendMessage', data)
         }
     },
     computed: {
