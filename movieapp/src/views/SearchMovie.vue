@@ -16,7 +16,7 @@
         </div>
 
         <!-- Content -->
-        <div class="container flex flex-row flex-wrap mt-4">
+        <div class="container flex flex-row flex-wrap mt-4" v-if="searchedMovies[0].Response === 'True'">
 
             <!-- MOVIECARD -->
             <MovieSearchCard
@@ -24,6 +24,15 @@
                 :key="movie.title + idx"
                 :movie="movie"
             ></MovieSearchCard>
+            
+        </div>
+
+        <div class="container flex flex-row flex-wrap mt-4" v-if="searchedMovies[0].Response === 'False'">
+
+            <!-- MOVIECARD -->
+            <div class="mc-3 p-3 rounded-xl mt-4 ml-4">
+                Sorry, no movies found.
+            </div>
             
         </div>
     </div>

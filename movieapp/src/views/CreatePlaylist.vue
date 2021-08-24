@@ -10,16 +10,16 @@
         </div>
 
         <div class="container mt-5">
-            <h2 class="text-md">Shawsank Redemption will be automatically added to this playlist</h2>
+            <h2 class="text-md">{{ selectedMovie.title }} will be automatically added to this playlist</h2>
         </div>
 
         <!-- Form Add Playlist -->
         <div class="container mt-10">
-            <form type="submit">
+            <form @submit.prevent="createPlaylist">
                 <label for="playlist_name" class="block mt-4">Playlist Name: </label>
-                <input name="playlist_name" type="text" placeholder="enter playlist name..." class="block mt-4 h-9 p-3 rounded-xl text-black" style="width: 100%">
+                <input v-model="playlistForm.title" name="playlist_name" type="text" placeholder="enter playlist name..." class="block mt-4 h-9 p-3 rounded-xl text-black" style="width: 100%">
                 <label for="playlist_description" class="block mt-4">Playlist Description: </label>
-                <textarea name="playlist_description" placeholder="describe your playlist" class="block mt-4 h-9 p-3 rounded-xl text-black" style="width: 100%; height: 20%"></textarea>
+                <textarea v-model="playlistForm.description" name="playlist_description" placeholder="describe your playlist" class="block mt-4 h-9 p-3 rounded-xl text-black" style="width: 100%; height: 20%"></textarea>
                 <button class="rounded-lg mc-button p-2 mt-8 block" type="submit" style="width: 100%">Create Playlist</button>
             </form>
         </div>
@@ -29,7 +29,33 @@
 
 <script>
 export default {
-    name: 'CreatePlaylist'
+    name: 'CreatePlaylist',
+    computed: {
+        selectedMovie() {
+            return this.$store.state.selectedMovie
+        }
+    },
+    data: function() {
+        return {
+            playlistForm: {
+                title: '',
+                description: ''
+            }
+        }
+    },
+    methods: {
+        createPlaylist() {
+            const payload = {
+                playlist: {
+                    title: this.playlistForm.title,
+                    description: this.playlistForm.description
+                },
+                movie: this.selectedMovie
+            }
+
+            this.$store.dispatch('createPlaylist', payload)
+        }
+    }
 }
 </script>
 
