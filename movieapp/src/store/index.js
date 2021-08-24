@@ -85,7 +85,7 @@ export default new Vuex.Store({
                     errorMessages = err.response.data.message
                 }
 
-                Vue.$toast.error(errorMessages, toastOptions);
+                Vue.$toast.error(errorMessages, toastOptions)
             }
         },
 
@@ -190,10 +190,100 @@ export default new Vuex.Store({
                     }
                 })
 
-                Vue.$toast.success(response.data.message, toastOptions);
+                Vue.$toast.success(response.data.message, toastOptions)
                 context.dispatch('fetchPlaylistById', payload.playlistId)
             } catch (err) {
-                Vue.$toast.error(err.response.data.message, toastOptions);
+                Vue.$toast.error(err.response.data.message, toastOptions)
+            }
+        },
+
+        async editPlaylist(context, payload) {
+            try {
+                const response = await cineclubApi({
+                    method: 'PATCH',
+                    url: `/playlists/${payload.playlistId}`,
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    },
+                    data: {
+                        title: payload.title,
+                        description: payload.description
+                    }
+                })
+
+                Vue.$toast.success(response.data.message, toastOptions)
+                router.push('/playlist')
+            } catch (err) {
+                let errorMessages = ''
+
+                if(Array.isArray(err.response.data.message)) {
+                    err.response.data.message.forEach((el, idx) => {
+                        errorMessages += `${el}`
+                        errorMessages += idx === err.response.data.message.length - 1 ? '' : ',\n'
+                    })
+                } else {
+                    errorMessages = err.response.data.message
+                }
+
+                Vue.$toast.error(errorMessages, toastOptions)
+            }
+        },
+
+        async removeMovieFromPlaylist(context, payload) {
+            try {
+                const response = await cineclubApi({
+                    method: 'DELETE',
+                    url: `/playlistmovies/${payload.playlistId}/movies/${payload.movieId}`,
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    }
+                })
+
+                Vue.$toast.success(response.data.message, toastOptions)
+                context.dispatch('fetchPlaylistById', payload.playlistId)
+            } catch (err) {
+                Vue.$toast.error(err.response.data.message, toastOptions)
+            }
+        },
+
+        async addMovieManually(context, payload) {
+            try {
+                const response = await cineclubApi({
+                    method: 'POST',
+                    url: `/movies/playlist/${payload.playlistId}`,
+                    headers: {
+                        access_token: localStorage.getItem('access_token')
+                    },
+                    data: {
+                        title: payload.title,
+                        genre: payload.genre,
+                        runtime: payload.runtime,
+                        director: payload.director,
+                        imdbRating: payload.imdbRating,
+                        posterUrl: payload.posterUrl
+                    }
+                })
+
+                Vue.$toast.info('Adding movie to playlist... please wait', toastOptions)
+
+                setTimeout(function() {
+                    Vue.$toast.success(response.data.message, toastOptions)
+                    router.push(`/playlist/edit/${payload.playlistId}`)
+                }, 2000)
+
+            } catch (err) {
+                let errorMessages = ''
+
+                if(Array.isArray(err.response.data.message)) {
+                    err.response.data.message.forEach((el, idx) => {
+                        errorMessages += `${el}`
+                        errorMessages += idx === err.response.data.message.length - 1 ? '' : ',\n'
+                    })
+                } else {
+                    errorMessages = err.response.data.message
+                }
+
+                Vue.$toast.error(errorMessages, toastOptions)
             }
         }
     },
