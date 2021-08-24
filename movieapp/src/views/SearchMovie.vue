@@ -16,24 +16,26 @@
         </div>
 
         <!-- Content -->
-        <div class="container flex flex-row flex-wrap mt-4" v-if="searchedMovies[0].Response === 'True'">
+        <div v-if="searchedMovies.length !== 0">
+            <div class="container flex flex-row flex-wrap mt-4" v-if="searchedMovies[0].Response === 'True'">
 
-            <!-- MOVIECARD -->
-            <MovieSearchCard
-                v-for="(movie, idx) in searchedMovies"
-                :key="movie.title + idx"
-                :movie="movie"
-            ></MovieSearchCard>
-            
-        </div>
-
-        <div class="container flex flex-row flex-wrap mt-4" v-if="searchedMovies[0].Response === 'False'">
-
-            <!-- MOVIECARD -->
-            <div class="mc-3 p-3 rounded-xl mt-4 ml-4">
-                Sorry, no movies found.
+                <!-- MOVIECARD -->
+                <MovieSearchCard
+                    v-for="(movie, idx) in searchedMovies"
+                    :key="movie.title + idx"
+                    :movie="movie"
+                ></MovieSearchCard>
+                
             </div>
-            
+
+            <div class="container flex flex-row flex-wrap mt-4" v-if="searchedMovies[0].Response === 'False'">
+
+                <!-- MOVIECARD -->
+                <div class="mc-3 p-3 rounded-xl mt-4 ml-4">
+                    Sorry, no movies found.
+                </div>
+                
+            </div>
         </div>
     </div>
 </template>

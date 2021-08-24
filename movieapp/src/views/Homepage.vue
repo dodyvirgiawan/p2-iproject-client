@@ -9,6 +9,10 @@
             <hr style="opacity: 10%">
         </div>
 
+        <router-link to="/playlist/search" class="rounded-lg mc-button p-2 mt-8 block text-center">
+            Search Playlist
+        </router-link>
+
         <!-- Content -->
         <div class="container flex flex-row mt-4">
             <div class="container">

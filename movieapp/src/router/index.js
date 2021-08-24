@@ -44,6 +44,11 @@ const routes = [
                 component: () => import('../views/UserPlaylist.vue')
             },
             {
+                path: 'playlist/search',
+                name: 'SearchPlaylist',
+                component: () => import('../views/SearchPlaylist.vue')
+            },
+            {
                 path: 'playlist/edit/:id',
                 name: 'EditPlaylist',
                 component: () => import('../views/EditPlaylist.vue')
@@ -85,6 +90,7 @@ router.beforeEach((to, from, next) => {
         case 'EditPlaylist':
         case 'AddMovie':
         case 'PlaylistDetail':
+        case 'SearchPlaylist':
             access_token ? next() : next({name: 'Login'})
             break
     }
