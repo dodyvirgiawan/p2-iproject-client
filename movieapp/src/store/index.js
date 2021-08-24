@@ -37,7 +37,9 @@ export default new Vuex.Store({
         loggedInUserPlaylists: [],
         viewedPlaylist: {},
         searchedMovies: [],
-        selectedMovie: {}
+        selectedMovie: {},
+        chatMessages: [],
+        loggedInChatUsers: []
     },
     mutations: {
         SET_IS_LOGGED_IN(state, payload) {
@@ -70,6 +72,14 @@ export default new Vuex.Store({
 
         SET_SELECTED_MOVIE(state, payload) {
             state.selectedMovie = payload
+        },
+
+        SET_CHAT_MESSAGES(state, payload) {
+            state.chatMessages = payload
+        },
+
+        SET_LOGGED_IN_CHAT_USERS(state, payload) {
+            state.loggedInChatUsers = payload
         }
     },
     actions: {
