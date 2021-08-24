@@ -8,7 +8,7 @@
                         <h2 class="text-xl mt-4">The cinephile lounge</h2>
                     </div>
                     <div class="mt-14">
-                        <img src="@/assets/home.jpg" class="rounded-md">
+                        <img src="@/assets/home.jpg" class="rounded-2xl">
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                 <div class="flex flex-col p-24 mt-14 text-white">
                     <div class="container">
                         <h3 class="font-bold text-2xl">Hi there fellow Cinephile!</h3>
-                        <h3 class="mt-1">Don't have an account yet? Register here</h3>
+                        <h3 class="mt-3">Don't have an account yet? <router-link class="mc-button p-2 rounded-xl" to="/register">Register here</router-link></h3>
                     </div>
                     <div class="container">
                         <button class="rounded-lg mc-2 p-2 text-gray-100 mt-6 block">Sign in with Google</button>
