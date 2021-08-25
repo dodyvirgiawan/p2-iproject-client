@@ -20,8 +20,16 @@
                         <h3 class="font-bold text-2xl">Hi there fellow Cinephile!</h3>
                         <h3 class="mt-3">Already have an account? <router-link class="mc-button p-2 rounded-xl" to="/login">Login here</router-link></h3>
                     </div>  
-                    <div class="container">
-                        <button class="rounded-lg mc-2 p-2 text-gray-100 mt-6 block">Sign in with Google</button>
+                    <div class="container mt-3">
+                        <p>Sign in via google</p>
+                        
+                        <GoogleLogin 
+                            :params="params" 
+                            :renderParams="renderParams" 
+                            :onSuccess="onSuccess" 
+                            class="mt-2"
+                        ></GoogleLogin>
+                        
                     </div>
                     <div class="container">
                         <hr class="mt-8 inline-block border-gray-300" style="width: 42%; opacity: 30%"> 
@@ -48,6 +56,8 @@
 </template>
 
 <script>
+import GoogleLogin from 'vue-google-login'
+
 export default {
     name: 'Register',
     data: function() {
@@ -57,6 +67,14 @@ export default {
                 last_name: '',
                 email: '',
                 password: ''
+            },
+            params: {
+                client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID
+            },
+            renderParams: {
+                width: 100,
+                height: 30,
+                longtitle: false
             }
         }
     },
@@ -70,7 +88,14 @@ export default {
             }
 
             this.$store.dispatch('doRegister', payload)
+        },
+
+        onSuccess(googleUser) {
+            this.$store.dispatch('googleLogin', googleUser)
         }
+    },
+    components: {
+        GoogleLogin
     }
 }
 </script>

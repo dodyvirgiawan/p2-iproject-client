@@ -136,6 +136,27 @@ export default new Vuex.Store({
             }
         },
 
+        async googleLogin(context, payload) {
+            try {
+                const id_token = payload.getAuthResponse().id_token;
+
+                const response = await cineclubApi({
+                    method: 'POST',
+                    url: '/auth/google',
+                    data: { id_token }
+                })
+
+                localStorage.setItem('access_token', response.data.access_token)
+                context.commit('SET_IS_LOGGED_IN', true)
+                context.dispatch('getLoggedInUserInfo')
+
+                Vue.$toast.success("Successfully logged in! Welcome to Cineclub!", toastOptions)
+                router.push('/')
+            } catch (err) {
+                Vue.$toast.error(err.response.data.message)
+            }
+        },
+
         async getLoggedInUserInfo(context) {
             try {
                 const response = await cineclubApi({
