@@ -69,7 +69,12 @@ const routes = [
                 component: () => import('../views/PlaylistDetail.vue')
             }
         ]
-    }
+    },
+    {
+        path: '*',
+        name: 'NotFound',
+        component: () => import('../views/NotFound.vue')
+    },
 ]
 
 const router = new VueRouter({
@@ -98,6 +103,9 @@ router.beforeEach((to, from, next) => {
         case 'SearchPlaylist':
         case 'Chat':
             access_token ? next() : next({name: 'Login'})
+            break
+        case 'NotFound':
+            next()
             break
     }
 })
