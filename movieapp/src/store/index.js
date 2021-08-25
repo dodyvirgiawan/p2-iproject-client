@@ -247,7 +247,7 @@ export default new Vuex.Store({
                 Vue.$toast.success(response.data.message, toastOptions)
                 context.dispatch('fetchPlaylistById', payload.playlistId)
             } catch (err) {
-                Vue.$toast.error(err.response.data.message, toastOptions)
+                Vue.$toast.error(err.response.data.message[0], toastOptions)
             }
         },
 

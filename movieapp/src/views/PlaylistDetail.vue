@@ -68,7 +68,7 @@
                             <div class="container p-3">
                                 <div class="md:flex md:flex-row">
                                     <div class="container md:w-4/5">
-                                        <input v-model="comment" name="comment" type="text" placeholder="share your thoughts here..." class="block mt-2 h-9 p-3 rounded-xl text-black" style="width: 100%">
+                                        <input v-on:keyup.enter="addComment" v-model="comment" name="comment" type="text" placeholder="share your thoughts here..." class="block mt-2 h-9 p-3 rounded-xl text-black" style="width: 100%">
                                     </div>
                                     <div class="container md:w-1/5">
                                         <button class="rounded-lg mc-button mt-2 p-1 md:ml-3" style="width: 100%" @click="addComment">Post comment</button>
@@ -153,12 +153,15 @@ export default {
     },
     methods: {
         addComment() {
-            const payload = {
-                playlistId: this.viewedPlaylist.id,
-                comment: this.comment
-            }
+            if(this.comment.trim()) {
+                const payload = {
+                    playlistId: this.viewedPlaylist.id,
+                    comment: this.comment
+                }
 
-            this.$store.dispatch('addCommentToPlaylist', payload)
+                this.comment = ''
+                this.$store.dispatch('addCommentToPlaylist', payload)
+            }
         }
     }
 }
