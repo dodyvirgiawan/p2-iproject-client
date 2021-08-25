@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="container invisible md:visible flex flex-row mc-4 mt-10 p-5 rounded-full">
+            <div class="container invisible md:visible flex flex-row mc-4 md:mt-10 p-5 rounded-full">
                 <div class="container mc-history-btn p-1 rounded-l-xl" @click="goBack">
                     <img class="mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA9ElEQVRIS82V0Q3CMAxEzxPABrABMAFsAJvABrAJbACjsNGhQy4KjQCnaST8WVX37mI7MTQua6yPagDJJYCzjJrZqm+4CkDyBODYiZpZpjcIQHIO4ApA7l81CoDkwV1Ps+OoSUBSgnK9+TQYgxOQ3HkjM9dVR+SuNSEC/KyiBCR1FBJXQ0MVArhrjZ6aWVRRwB3AokjZf/4bgCZFG7ovTRFK0Il6ky8AZlFQEUCi3nBBthFIMSBJoz0QaPINNBiQpLkBWI9+VaSCftlpCLI0VQl6EG230rzty2iApDdtHpxeGj06GgA9mW8P0PNbZPxq/mkOeABc6lAZUpxiVgAAAABJRU5ErkJggg=="/>
                 </div>
