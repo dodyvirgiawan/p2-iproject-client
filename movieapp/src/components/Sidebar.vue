@@ -61,14 +61,22 @@
         </div>
 
         <!-- Logout Button -->
-        <div class="container text-white mc-3 rounded-xl p-2 cursor-pointer" @click="logout">
+        <div v-if="isLoggedIn && !loggedInUserInfo.isGoogleUser" class="container text-white mc-3 rounded-xl p-2 cursor-pointer" @click="logout">
             <h3 class="text-2xl text-center">Logout</h3>
         </div>
-        
+
+        <div v-if="isLoggedIn && loggedInUserInfo.isGoogleUser" class="container text-white text-center text-2xl mc-3 rounded-xl p-2 cursor-pointer" @click="logout">
+            <GoogleLogin 
+                :params="params" 
+                :logoutButton=true
+            >Logout</GoogleLogin>
+        </div>
     </div>
 </template>
 
 <script>
+import GoogleLogin from 'vue-google-login'
+
 import Vue from 'vue'
 import Toast from "vue-toastification"
 import "vue-toastification/dist/index.css"
@@ -96,6 +104,13 @@ Vue.use(Toast, {
 
 export default {
     name: 'Sidebar',
+    data: function() {
+        return {
+            params: {
+                client_id: process.env.VUE_APP_GOOGLE_CLIENT_ID
+            }
+        }
+    },
     methods: {
         logout() {
             localStorage.removeItem('access_token')
@@ -107,9 +122,16 @@ export default {
         }
     },
     computed: {
+        isLoggedIn() {
+            return this.$store.state.isLoggedIn
+        },
+
         loggedInUserInfo() {
             return this.$store.state.loggedInUserInfo
         }
+    },
+    components: {
+        GoogleLogin
     }
 }
 </script>
