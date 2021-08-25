@@ -16,9 +16,9 @@
                     :hits-per-page.camel="4"
                 />
             
-                <div class="container flex flex-row">
+                <div class="container md:flex md:flex-row">
 
-                    <div class="container w-1/5">
+                    <div class="container md:w-1/5">
                         <ais-refinement-list
                             attribute="Movies.genre"
                             :limit="3"
@@ -34,7 +34,7 @@
                         />
                     </div>
 
-                    <div class="container w-4/5 ml-4">
+                    <div class="container mt-4 md:w-4/5 md:ml-4">
                         <ais-search-box 
                             placeholder="Search awesome movie playlist here..."
                             :autofocus="true"

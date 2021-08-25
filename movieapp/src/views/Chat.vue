@@ -9,8 +9,8 @@
             <hr style="opacity: 10%">
         </div>
 
-        <!-- Content (Still Overflowing on small viewport) --> 
-        <div class="container m-auto md:flex md:flex-grow mt-5" style="height: 60vh">
+        <!-- Content --> 
+        <div class="container m-auto md:flex md:flex-grow mt-5" style="height: 60vh; overflow: auto;">
             <div class="container mx-auto md:flex md:flex-row justify-center">
 
                 <!-- Chat Sidebar (Online User) -->
