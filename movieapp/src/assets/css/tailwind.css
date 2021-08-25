@@ -39,6 +39,13 @@ body {
     @apply font-bold;
 }
 
+.mc-movie-tag {
+    background: rgb(173,232,93);
+    background: linear-gradient(90deg, rgba(173,232,93,1) 5%, rgba(232,231,93,1) 46%, rgba(253,201,43,1) 96%);
+    @apply shadow-lg;
+    @apply text-black;
+}
+
 .mc-button:hover {
     background: rgb(189,93,150);
     background: linear-gradient(90deg, rgba(189,93,150,1) 0%, rgba(91,80,152,1) 100%, rgba(43,146,253,1) 100%);
@@ -80,8 +87,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba( 61, 61, 61, 0.20 );
-    backdrop-filter: blur( 13.5px );
+    background: rgb(255,122,201);
+    background: linear-gradient(90deg, rgba(255,122,201,1) 0%, rgba(123,106,217,1) 100%, rgba(43,146,253,1) 100%);
     -webkit-backdrop-filter: blur( 13.5px );
 }
 

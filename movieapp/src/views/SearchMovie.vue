@@ -11,7 +11,7 @@
 
         <!-- Search Bar -->
         <div class="container mt-8 flex flex-row ml-5">
-            <input v-on:keyup.enter="searchMovie" v-model="searchTitle" name="search" type="text" placeholder="search movies..." class="h-9 p-3 rounded-xl text-black">
+            <input v-on:keyup.enter="searchMovie" v-model="searchTitle" autocomplete="off" name="search" type="text" placeholder="search movies..." class="h-9 p-3 rounded-xl text-black">
             <button class="rounded-lg p-2 mc-button my-auto block ml-5" @click="searchMovie">Search</button>
         </div>
 

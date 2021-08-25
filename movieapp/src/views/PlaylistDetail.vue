@@ -46,13 +46,14 @@
                             <!-- Movies in this playlist -->
                             <div class="container mt-4 mc-1 flex flex-col rounded-lg">
 
-                                <div class="container flex flex-row flex-wrap mt-4 p-5 justify-center">
+                                <div class="container flex flex-row flex-wrap mt-4 p-5" style="overflow: auto;">
 
                                     <!-- MOVIECARD -->
                                     <MovieCard
                                         v-for="(movie, idx) in viewedPlaylist.Movies"
                                         :key="movie.title + idx"
                                         :movie="movie"
+                                        class="m-9"
                                     ></MovieCard>
 
                                 </div>
@@ -66,10 +67,10 @@
                             <!-- Comment Button -->
                             <div class="container p-3">
                                 <div class="flex flex-row">
-                                    <div class="container">
+                                    <div class="container w-4/5">
                                         <input v-model="comment" name="comment" type="text" placeholder="share your thoughts here..." class="block mt-2 h-9 p-3 rounded-xl text-black" style="width: 100%">
                                     </div>
-                                    <div class="container">
+                                    <div class="container w-1/5">
                                         <button class="rounded-lg mc-button mt-2 p-1 ml-3" style="width: 100%" @click="addComment">Post comment</button>
                                     </div>
                                 </div>
