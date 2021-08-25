@@ -2,8 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Toast from "vue-toastification"
 import router from '../router'
+
 import cineclubApi from '../apis/cineclubApi.js'
 import omdbApi from '../apis/omdbApi.js'
+import tmdbApi from '../apis/tmdbApi.js'
+
 import "vue-toastification/dist/index.css"
 
 const toastOptions = {
@@ -39,7 +42,8 @@ export default new Vuex.Store({
         searchedMovies: [],
         selectedMovie: {},
         chatMessages: [],
-        loggedInChatUsers: []
+        loggedInChatUsers: [],
+        trendingMovies: []
     },
     mutations: {
         SET_IS_LOGGED_IN(state, payload) {
@@ -80,6 +84,10 @@ export default new Vuex.Store({
 
         SET_LOGGED_IN_CHAT_USERS(state, payload) {
             state.loggedInChatUsers = payload
+        },
+
+        SET_TRENDING_MOVIES(state, payload) {
+            state.trendingMovies = payload
         }
     },
     actions: {
@@ -429,6 +437,19 @@ export default new Vuex.Store({
                 })
 
                 context.commit('SET_SEARCHED_MOVIES', response.data)
+            } catch (err) {
+                Vue.$toast.error(err.response.data.message, toastOptions)
+            }
+        },
+
+        async fetchTrendingMovies(context) {
+            try {
+                const response = await tmdbApi({
+                    method: 'GET',
+                    url: '/trending/movie/week'
+                })
+
+                context.commit('SET_TRENDING_MOVIES', response.data.results)
             } catch (err) {
                 Vue.$toast.error(err.response.data.message, toastOptions)
             }

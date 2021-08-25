@@ -27,6 +27,17 @@
             </div>
             <hr class="mt-2 inline-block border-gray-300" style="opacity: 30%"> 
             <div class="container mt-3">
+                <router-link to="/movies/trending" class="container flex flex-row p-2 rounded-xl m-navbar-btn">
+                    <div class="container w-1/4">
+                        <img class="block w-9 mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+ElEQVRIS9WVwRGCMBBF/6/AEtQK1A4sRStRL14sQmuwAo/epAAP0IEdfGeZhGFAICOJM3Jistn/8ncJSyR+mFgfvwNIWgM4A5iNdJUD2JK8mU7lQJIFpiPFfXpOct4EyEVXAB7+nWQmaRmyZjmSSh2S5eHrDqqApD2AHYCMpAEtMXRtGOAEMwALAAeSJm6QwbUgB04sqCzN8vlSdpYoUpO7e5Ac4K19CwruQRMg6QrgSPLeBx8D8PfEbruBnp9AMQBe9+RArzroLwDJSpS2yaGfbV8PrFmTUKGBfQXJcq7U/6Y2cC4RZkIBYNMaOJFO3pL53UxO5eANgwfVGdurcxYAAAAASUVORK5CYII="/>
+                    </div>
+                    <div class="container w-3/4 p-1">
+                        Trending Movies
+                    </div>
+                </router-link>
+            </div>
+            <hr class="mt-2 inline-block border-gray-300" style="opacity: 30%"> 
+            <div class="container mt-3">
                 <router-link to="/movies" class="container flex flex-row p-2 rounded-xl m-navbar-btn">
                     <div class="container w-1/4">
                         <img class="block w-9 mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABRklEQVRIS9WU7TEEURBFz42AjcBuBkRABojACkEEiEAIbATIgAjIwGwGK4Knrnoz2uybNYNRpX9NVX+c7p53W4xsGrk+fwtIKU2BK2AX8PcNcCmpyr5zYA5UwDNwZt+mLTQT5AJPwHYrYQUcA7cdvr1NkAi4Aw6Bx9ylOZ5gPwBLvntJR11TRIA73QJmdUd5qpeQXPJVkmZDABNJhlEAlHyvktprbXhxAq/jBHgATnPENXAQuiv5FpL844sWAQ5ywaHmV+TX5H+4ZhHgwJ2h1XP8StLkK0BygKRB4kspreWllOaSvPIPJZcC+0wT81wYsBindaNxRT+aIKvb6n+3MQCfBv6XgEXW0Tgr8kqy8i8M+vUVxedtUH3PSseuz+tsxywlNS8oOiPAN8fiGKrmpc+7JN+p7lPxnbb75Aw6C30KtmNGB7wBIbqtGRsfaLYAAAAASUVORK5CYII="/>
