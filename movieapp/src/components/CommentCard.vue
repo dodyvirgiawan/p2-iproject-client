@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-row p-6 mc-3 mt-5 rounded-2xl">
+    <div class="md:flex md:flex-row p-6 mc-3 mt-5 rounded-2xl">
         <!-- Commenter's Name -->
-        <div class="container w-1/4 flex flex-col">
+        <div class="container md:w-1/4 flex flex-col">
             <div class="flex flex-row p-1 mc-3 rounded-xl">
                 <div class="container m-auto w-1/4">
                     <img :src="`https://avatars.dicebear.com/api/bottts/${comment.author.first_name}${comment.author.last_name}.svg`" class="block w-11 mx-auto">
@@ -14,7 +14,7 @@
         </div>
 
         <!-- The Actual Comment -->
-        <div class="container w-3/4 p-2 ml-4 rounded-xl">
+        <div class="container md:w-3/4 p-2 md:ml-4 rounded-xl">
             <p class="text-sm">
                 {{ comment.comment }}
             </p>

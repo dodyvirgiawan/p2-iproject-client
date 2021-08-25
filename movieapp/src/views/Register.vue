@@ -1,8 +1,8 @@
 <template>
-    <div class="container m-auto flex flex-grow mt-24" style="height: 80vh">
-        <div class="container mx-auto flex flex-row justify-center">
-            <div class="container w-2/4 mc-1 rounded-l-3xl">
-                <div class="flex flex-col p-12 text-white">
+    <div class="container m-auto md:flex md:flex-grow mt-24" style="height: 80vh">
+        <div class="container mx-auto md:flex md:flex-row justify-center">
+            <div class="container sm:w-2/4 mc-1 sm:rounded-l-3xl" style="overflow: auto;">
+                <div class="flex flex-col p-4 sm:p-6 md:p-8 lg:p-12 xl:p-14 text-white">
                     <div>
                         <div>
                             <h1 class="font-bold text-4xl">Cineclub</h1>
@@ -14,8 +14,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container w-2/4 mc-2 rounded-r-3xl">
-                <div class="flex flex-col p-24 text-white">
+            <div class="container sm:w-2/4 mc-2 sm:rounded-r-3xl" style="overflow: auto;">
+                <div class="flex flex-col p-5 sm:p-6 md:p-8 lg:p-14 xl:p-24 text-white">
                     <div class="container">
                         <h3 class="font-bold text-2xl">Hi there fellow Cinephile!</h3>
                         <h3 class="mt-3">Already have an account? <router-link class="mc-button p-2 rounded-xl" to="/login">Login here</router-link></h3>
@@ -32,9 +32,9 @@
                         
                     </div>
                     <div class="container">
-                        <hr class="mt-8 inline-block border-gray-300" style="width: 42%; opacity: 30%"> 
+                        <hr class="mt-8 inline-block border-gray-300 invisible md:visible" style="width: 42%; opacity: 30%"> 
                         <span class="p-4 m-3">OR</span>
-                        <hr class="mt-8 inline-block border-gray-300" style="width: 42%; opacity: 30%"> 
+                        <hr class="mt-8 inline-block border-gray-300 invisible md:visible" style="width: 42%; opacity: 30%"> 
                     </div>
                     <div class="container">
                         <form @submit.prevent="register">
