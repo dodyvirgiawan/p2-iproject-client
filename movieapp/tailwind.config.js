@@ -1,14 +1,71 @@
 module.exports = {
-  purge: {
-    mode: 'layers',
-    content: ['./public/**/*.html', './src/**/*.vue']
-  },
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+    purge: {
+        layers: [''],
+        content: [
+            './src/**/*.html',
+            './src/**/*.vue',
+            './src/**/*.jsx',
+        ],
+        safelist: [
+            'flex',
+            'flex-col',
+            'container',
+            'text-4xl',
+            'mt-5',
+            'rounded-lg',
+            'mc-button',
+            'p-2',
+            'mt-8',
+            'block',
+            'text-center',
+            'mt-4',
+            'flex-row',
+            'm-auto',
+            'md:flex',
+            'md:flex-grow',
+            'mt-24',
+            'mx-auto',
+            'md:flex-row',
+            'justify-center',
+            'sm:w-2/4',
+            'sm:rounded-l-3xl',
+            'p-4',
+            'sm:p-6',
+            'md:p-8',
+            'lg:p-12',
+            'xl:p-14',
+            'text-white',
+            'font-bold',
+            'text-4xl',
+            'text-xl',
+            'mt-14',
+            'rounded-2xl',
+            'sm:w-2/4',
+            'sm:rounded-r-3xl',
+            'p-5',
+            'sm:p-6',
+            'md:p-8',
+            'lg:p-14',
+            'xl:p-24',
+            'text-2xl',
+            'mt-3',
+            'rounded-xl',
+            'mt-8',
+            'inline-block',
+            'border-gray-300',
+            'invisible',
+            'md:visible',
+            'h-9',
+            'p-3',
+            'text-black'
+          ]
+    },
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+        extend: {},
+    },
+    variants: {
+        extend: {},
+    },
+    plugins: [],
 }
