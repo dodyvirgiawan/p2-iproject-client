@@ -66,12 +66,12 @@
                         <div class="flex flex-col p-6 mc-1 rounded-b-3xl" v-if="viewedPlaylist.Comments">
                             <!-- Comment Button -->
                             <div class="container p-3">
-                                <div class="flex flex-row">
-                                    <div class="container w-4/5">
+                                <div class="md:flex md:flex-row">
+                                    <div class="container md:w-4/5">
                                         <input v-model="comment" name="comment" type="text" placeholder="share your thoughts here..." class="block mt-2 h-9 p-3 rounded-xl text-black" style="width: 100%">
                                     </div>
-                                    <div class="container w-1/5">
-                                        <button class="rounded-lg mc-button mt-2 p-1 ml-3" style="width: 100%" @click="addComment">Post comment</button>
+                                    <div class="container md:w-1/5">
+                                        <button class="rounded-lg mc-button mt-2 p-1 md:ml-3" style="width: 100%" @click="addComment">Post comment</button>
                                     </div>
                                 </div>
                             </div>
