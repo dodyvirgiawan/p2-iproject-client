@@ -46,7 +46,7 @@
                             <!-- Movies in this playlist -->
                             <div class="container mt-4 mc-1 flex flex-col rounded-lg">
 
-                                <div class="container flex flex-row flex-wrap mt-4 p-5" style="overflow: auto;">
+                                <div class="container flex flex-row mt-4 p-5" style="overflow: auto;">
 
                                     <!-- MOVIECARD -->
                                     <MovieCard
