@@ -1,21 +1,32 @@
 <template>
     <!-- Sidebar -->
     <div class="flex flex-col p-10 justify-between" style="height: 100%">
-        <!-- Name -->
-        <div class="container text-white mc-3 rounded-xl p-2">
-            <div class="flex flex-row p-1">
-                <div class="container m-auto w-1/4">
-                    <img :src="`https://avatars.dicebear.com/api/bottts/${loggedInUserInfo.first_name}${loggedInUserInfo.last_name}.svg`" class="block w-11 mx-auto">
+        <!-- Name & History Button -->
+        <div class="container">
+            <div class="container text-white mc-3 rounded-xl p-2">
+                <div class="flex flex-row p-1">
+                    <div class="container m-auto w-1/4">
+                        <img :src="`https://avatars.dicebear.com/api/bottts/${loggedInUserInfo.first_name}${loggedInUserInfo.last_name}.svg`" class="block w-11 mx-auto">
+                    </div>
+                    <div class="container m-auto w-3/4 ml-3">
+                        <h3 class="text-2xl">{{ loggedInUserInfo.first_name }} {{ loggedInUserInfo.last_name }}</h3>
+                    </div>
                 </div>
-                <div class="container m-auto w-3/4 ml-3">
-                    <h3 class="text-2xl">{{ loggedInUserInfo.first_name }} {{ loggedInUserInfo.last_name }}</h3>
+            </div>
+
+            <div class="container invisible md:visible flex flex-row mc-4 md:mt-10 p-5 rounded-full">
+                <div class="container mc-history-btn p-1 rounded-l-xl" @click="goBack">
+                    <img class="mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA9ElEQVRIS82V0Q3CMAxEzxPABrABMAFsAJvABrAJbACjsNGhQy4KjQCnaST8WVX37mI7MTQua6yPagDJJYCzjJrZqm+4CkDyBODYiZpZpjcIQHIO4ApA7l81CoDkwV1Ps+OoSUBSgnK9+TQYgxOQ3HkjM9dVR+SuNSEC/KyiBCR1FBJXQ0MVArhrjZ6aWVRRwB3AokjZf/4bgCZFG7ovTRFK0Il6ky8AZlFQEUCi3nBBthFIMSBJoz0QaPINNBiQpLkBWI9+VaSCftlpCLI0VQl6EG230rzty2iApDdtHpxeGj06GgA9mW8P0PNbZPxq/mkOeABc6lAZUpxiVgAAAABJRU5ErkJggg=="/>
+                </div>
+                <div class="container mc-history-btn p-1 rounded-r-xl" @click="goForward">
+                    <img class="mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA3klEQVRIS7WVURHCMBBEdx2BFByAg0poHVAJOAAH4AAcgANQEGaZZIYJlCbhbr/6kdl327tcCGfR2R9fASGEM4AAYENS382aAsg8qSc5tBJKAPJWihXJay2oFCDfOwClGWsgNYDke4xpBJxVCyCl0QDs5witgOQrgECTaf4FCKTGC6Jf9yELQDLdAhjyNJaA1ziTXL7HsAZcSC68ACPJLm+CRYIbgLVXk3cAOo8xfcSqXS7aIZqbrwpVrWWneS9WaZNPsWqXda3b2ReXnB389WTqqMbP/slsrbZ42VkCnvF7chmK8dFaAAAAAElFTkSuQmCC"/>
                 </div>
             </div>
         </div>
 
         <!-- Navigations -->
         <div class="container flex flex-col p-3 text-white text-lg">
-            <div class="container mt-3">
+            <div class="container">
                 <router-link to="/" class="container flex flex-row p-2 rounded-xl m-navbar-btn">
                     <div class="container w-1/4">
                         <img class="block w-9 mx-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABC0lEQVRIS+2V3RHCMAyDpQmACYAJgA1gE5gMNoERygZ0AtjAXHoJlwa3qPy8kbdeHX12rDjEjxd/rA8ZYGZjAMeY0IbkTUlOAmTiyyhaAZAgLwGF+DkCFgAkSC/AEV9HwAmABOkEeOLp3OM/CeIC+sRTY1XIE0ARHwJpAYaIq5AHwLHiRPV63Hv1LJwDgu2CM5pF8qWF84tmZpZ9VyRXjU5W6jcBZ5LNpfSa3GSSKjCz4P09gFkxGi4AdiSDXZEqKCtXAEFo2jF3LiTnnwJaFWVHWlbqxikV/AHt9pVu6HKHGuf1ILxUI+W1cmJqki07e4Dg+0OPNbvYNYBtuhePifBmpvK2QfNGVs0C783y3RnaPV/7AAAAAElFTkSuQmCC"/>
@@ -132,6 +143,14 @@ export default {
 
             this.$router.push('/login')
             Vue.$toast.success("Successfully logged out!", toastOptions)
+        },
+
+        goBack() {
+            this.$router.go(-1)
+        },
+
+        goForward() {
+            this.$router.go(1)
         }
     },
     computed: {
