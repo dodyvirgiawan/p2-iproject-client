@@ -34,6 +34,11 @@ const routes = [
                 component: () => import('../views/SearchMovie.vue')
             },
             {
+                path: 'movies/trending',
+                name: 'TrendingMovies',
+                component: () => import('../views/TrendingMovies.vue')
+            },
+            {
                 path: 'movies/addtoplaylist',
                 name: 'AddToPlaylist',
                 component: () => import('../views/AddToPlaylist.vue')
@@ -94,6 +99,7 @@ router.beforeEach((to, from, next) => {
         case 'AppTemplate':
         case 'Home':
         case 'SearchMovie':
+        case 'TrendingMovies':
         case 'AddToPlaylist':
         case 'CreatePlaylist':
         case 'Playlist':
