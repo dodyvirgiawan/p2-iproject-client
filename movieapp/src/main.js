@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 
 Vue.use(InstantSearch)
 Vue.use(new VueSocketIO({
-    connection: 'http://localhost:3000'
+    connection: 'https://cineclub-lounge.herokuapp.com'
 }))
 
 new Vue({
