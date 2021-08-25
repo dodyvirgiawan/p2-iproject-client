@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <router-view/>
-        <div class="mt-80">
+        <div class="mt-96">
             <HFooter></HFooter>
         </div>
     </div>
