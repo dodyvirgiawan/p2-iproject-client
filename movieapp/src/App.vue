@@ -22,6 +22,11 @@ export default {
     },
     components: {
         HFooter
+    },
+    sockets: {
+        syncMessage(data) {
+            this.$store.commit('SET_CHAT_MESSAGES', data)
+        }
     }
 }
 </script>
