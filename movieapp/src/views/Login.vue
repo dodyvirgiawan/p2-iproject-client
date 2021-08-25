@@ -8,7 +8,7 @@
                         <h2 class="text-xl mt-4">The cinephile lounge</h2>
                     </div>
                     <div class="mt-14">
-                        <img src="@/assets/home.jpg" class="rounded-2xl">
+                        <img src="https://source.unsplash.com/collection/28346982/1600x900" class="rounded-2xl">
                     </div>
                 </div>
             </div>
