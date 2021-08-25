@@ -125,6 +125,8 @@ export default {
     methods: {
         logout() {
             localStorage.removeItem('access_token')
+
+            this.$socket.emit('logoutChat', `${this.loggedInUserInfo.first_name} ${this.loggedInUserInfo.last_name}`)
             this.$store.commit('SET_IS_LOGGED_IN', false)
             this.$store.commit('SET_LOGGED_IN_USER_INFO', {})
 
