@@ -36,6 +36,7 @@
                                 :key="movie.title + idx"
                                 :movie="movie"
                                 :idx="idx"
+                                :totalMovie="viewedPlaylist.Movies.length"
                             ></EditPlaylistMovieRow>
 
                         </tbody>
