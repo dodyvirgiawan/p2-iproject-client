@@ -1,5 +1,5 @@
 <template>
-    <div class="container m-auto md:flex md:flex-grow mt-24" style="height: 80vh">
+    <div class="container m-auto md:flex md:flex-grow md:mt-24" style="height: 80vh">
         <div class="container mx-auto md:flex md:flex-row justify-center">
             <div class="container md:w-1/4 mc-1 sm:rounded-l-3xl">
                 <!-- Sidebar -->
