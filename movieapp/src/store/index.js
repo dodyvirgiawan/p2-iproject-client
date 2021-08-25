@@ -444,6 +444,8 @@ export default new Vuex.Store({
 
         async fetchTrendingMovies(context) {
             try {
+                Vue.$toast.info("Loading trending movies...", toastOptions)
+
                 const response = await tmdbApi({
                     method: 'GET',
                     url: '/trending/movie/week'
@@ -453,6 +455,11 @@ export default new Vuex.Store({
             } catch (err) {
                 Vue.$toast.error(err.response.data.message, toastOptions)
             }
+        }
+    },
+    getters: {
+        chatMessages: state => {
+            return state.chatMessages.reverse()
         }
     },
     modules: {

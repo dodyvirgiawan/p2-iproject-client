@@ -32,9 +32,9 @@
                 </div>
 
                 <!-- The Chat -->
-                <div class="container w-3/4 mc-2 rounded-tr-3xl p-6 text-white" style="overflow: auto;">
+                <div ref="chatSection" class="container w-3/4 mc-2 rounded-tr-3xl p-6 text-white" style="overflow: auto;">
                     
-                    <div class="container flex flex-col">
+                    <div class="container flex flex-col-reverse">
 
                         <ChatCard
                             v-for="(chat, idx) in chatMessages"
@@ -82,6 +82,7 @@ export default {
     sockets: {
         syncMessage(data) {
             this.$store.commit('SET_CHAT_MESSAGES', data)
+            this.$refs.chatSection.scrollTop = this.$refs.chatSection.scrollHeight
         },
 
         syncLoggedInChatUser(data) {
@@ -107,7 +108,7 @@ export default {
         },
 
         chatMessages() {
-            return this.$store.state.chatMessages
+            return this.$store.getters.chatMessages
         },
 
         loggedInChatUsers() {
