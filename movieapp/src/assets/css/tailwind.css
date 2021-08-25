@@ -107,3 +107,51 @@ thead {
     @apply border-b-2;
     border-color:rgba( 0, 0, 0, 0.1 )
 }
+
+.mc-hits {
+    @apply bg-red-800;
+}
+
+.mc-hits-item {
+    @apply text-black;
+    background: rgb(173,232,93);
+    background: linear-gradient(90deg, rgba(173,232,93,1) 5%, rgba(232,231,93,1) 46%, rgba(253,201,43,1) 96%);
+}
+
+.mc-hits-list {
+    @apply text-red-900;
+}
+
+.mc-ais {
+    background: rgba( 221, 88, 255, 0.20 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 10.5px );
+    -webkit-backdrop-filter: blur( 10.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    @apply shadow-lg;
+    @apply text-black;
+}
+
+.mc-highlight {
+    @apply text-xl;
+}
+
+.mc-refinement {
+    @apply p-5;
+    @apply rounded-xl;
+    @apply max-w-sm;
+    background: rgba(204, 204, 204, 0.1);
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    @apply h-full;
+}
+
+.mc-labeltext {
+    @apply text-black;
+    @apply p-1;
+    @apply rounded-xl;
+    @apply mt-2;
+    background: rgb(173,232,93);
+    background: linear-gradient(90deg, rgba(173,232,93,1) 5%, rgba(232,231,93,1) 46%, rgba(253,201,43,1) 96%);
+}
