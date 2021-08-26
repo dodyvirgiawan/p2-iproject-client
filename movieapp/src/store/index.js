@@ -439,7 +439,7 @@ export default new Vuex.Store({
                         t: payload
                     }
                 })
-                console.log(response.data)
+
                 context.commit('SET_SEARCHED_MOVIES', response.data)
             } catch (err) {
                 Vue.$toast.error(err.response.data.message, toastOptions)
