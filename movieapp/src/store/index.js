@@ -388,7 +388,7 @@ export default new Vuex.Store({
             try {
                 // From OMDB Api is xx min. Want to get only the number
                 // Sometimes OMDB return N/A min. Set default as 0 min if runtime is not specified
-                const runtime = payload.movie.runtime === 'N/A' ? '0 min' : payload.movie.runtime.split(' ')[0] 
+                const runtime = payload.movie.runtime === 'N/A' ? '0 min' : payload.movie.runtime
 
                 const response = await cineclubApi({
                     method: 'POST',
@@ -399,7 +399,7 @@ export default new Vuex.Store({
                     data: {
                         title: payload.movie.title,
                         genre: payload.movie.genre,
-                        runtime, 
+                        runtime: runtime.split(' ')[0],
                         director: payload.movie.director,
                         imdbRating: payload.movie.imdbRating,
                         posterUrl: payload.movie.posterUrl
