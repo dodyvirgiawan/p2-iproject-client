@@ -32,5 +32,7 @@ export default {
 </script>
 
 <style>
-
+.social-links {
+    display: flex;
+}
 </style>
