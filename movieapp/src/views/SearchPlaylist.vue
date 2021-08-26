@@ -34,7 +34,7 @@
                         />
                     </div>
 
-                    <div class="container mt-4 md:w-4/5 md:ml-4">
+                    <div class="container mt-4 md:w-5/5 md:ml-4">
                         <ais-search-box 
                             placeholder="Search awesome movie playlist here..."
                             :autofocus="true"
@@ -77,7 +77,7 @@
                 </div>
             </ais-instant-search>
 
-            <div class="container mt-2 align-items-right">
+            <div class="container mt-2 align-items-right md:ml-2">
                 <ais-powered-by
                     theme="dark"
                 />

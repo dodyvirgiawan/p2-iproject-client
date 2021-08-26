@@ -154,9 +154,6 @@ thead {
     @apply p-5;
     @apply rounded-xl;
     @apply max-w-sm;
-    background: rgba(204, 204, 204, 0.1);
-    backdrop-filter: blur( 13.5px );
-    -webkit-backdrop-filter: blur( 13.5px );
     @apply h-full;
 }
 
@@ -165,6 +162,8 @@ thead {
     @apply p-1;
     @apply rounded-xl;
     @apply mt-2;
-    background: rgb(173,232,93);
-    background: linear-gradient(90deg, rgba(173,232,93,1) 5%, rgba(232,231,93,1) 46%, rgba(253,201,43,1) 96%);
+    @apply text-white;
+    @apply font-bold;
+    background: rgb(255,122,201);
+    background: linear-gradient(90deg, rgba(255,122,201,1) 0%, rgba(123,106,217,1) 100%, rgba(43,146,253,1) 100%);
 }

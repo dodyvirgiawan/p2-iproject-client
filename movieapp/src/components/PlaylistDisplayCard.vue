@@ -5,7 +5,7 @@
 
             <div class="container flex flex-row">
                 <div class="container w-20">
-                    <img :src="`https://picsum.photos/seed/${playlist.title}/200/200/?blur=2`" class="block w-11 rounded-full">
+                    <img :src="playlist.Movies[0].posterUrl" class="block w-10 rounded-full">
                 </div>
                 <div class="container">
                     <div class="container">
