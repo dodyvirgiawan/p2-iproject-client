@@ -2,12 +2,14 @@
     <div id="app">
         <router-view/>
         <div class="mt-96">
+            <Footer></Footer>
             <HFooter></HFooter>
         </div>
     </div>
 </template>
 
 <script>
+import Footer from './components/Footer.vue'
 import HFooter from 'vue-hacktiv8-footer'
 
 export default {
@@ -21,6 +23,7 @@ export default {
         }
     },
     components: {
+        Footer,
         HFooter
     },
     sockets: {
